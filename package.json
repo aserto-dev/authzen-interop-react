@@ -1,6 +1,6 @@
 {
   "name": "@aserto/authzen-interop-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "AuthZEN interop react component",
   "main": "dist/index.js",
   "scripts": {
