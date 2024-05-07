@@ -4,7 +4,7 @@ import { theme } from './theme'
 import { GlobalStyle } from './globalStyles'
 import { Requests } from './components/Requests'
 import Diagram from './components/Diagram/Diagram'
-import defaultlogo from '../../assets/logo.png'
+import defaultlogo from './assets/logo.png'
 
 export const Container = styled.div`
   width: 100vw;
