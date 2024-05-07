@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import multiInput from 'rollup-plugin-multi-input'
 
 import typescript from 'rollup-plugin-typescript2'
+import image from '@rollup/plugin-image'
 
 const makeExternalPredicate = (externalArr) => {
   if (externalArr.length === 0) return () => false
@@ -29,6 +30,7 @@ const config = {
   ],
   plugins: [
     // This prevents needing an additional `external` prop in this config file by automaticall excluding peer dependencies
+    image(),
     typescript(),
     peerDepsExternal(),
     // Convert CommonJS modules to ES6

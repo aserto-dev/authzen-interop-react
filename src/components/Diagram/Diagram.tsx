@@ -3,6 +3,10 @@ import styled from 'styled-components'
 import Xarrow from 'react-xarrows'
 import { theme } from '../../theme'
 import Box from '../Box'
+import openid from '../../assets/openid.png'
+import todobackend from '../../assets/todo-backend.png'
+import react from '../../assets/react.png'
+import defaultlogo from '../../assets/logo.png'
 
 const Container = styled.div`
   padding-left: 20px;
@@ -49,7 +53,7 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
         <Box
           label="Todo React App"
           color={theme.indogoAccent3}
-          image="react.png"
+          image={react}
           url="https://todo.authzen-interop.net"
           id="todo-react"
         />
@@ -59,7 +63,7 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
         <Box
           label="Todo Backend"
           color={theme.appleAccent3}
-          image={'todo-backend.png'}
+          image={todobackend}
           id="todo-backend"
         />
       </TodoBackendSection>
@@ -67,7 +71,7 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
         <Box
           label="AuthZEN Proxy"
           color={theme.mojoAccent3}
-          image="openid.png"
+          image={openid}
           id="authzen-proxy"
         />
       </AuthZenProxySection>
@@ -75,7 +79,7 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
         <Box
           label={`${vendor ?? "Aserto"} Authorizer`}
           color={theme.lochivarAccent3}
-          image={logo ?? "logo.png"}
+          image={logo ?? defaultlogo}
           url={url ?? "https://www.aserto.com"}
           id="aserto"
         />
