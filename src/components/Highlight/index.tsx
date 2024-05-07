@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
 
-import copy from '../../assets/copy.svg'
+import { CopyGlyph } from '../CopyGlyph'
 import { CodeContainer, CodeDiv, CopyButton, customAtomDark } from './styles'
 
 type HighlightProps = {
@@ -38,7 +38,7 @@ const Highlight: React.FC<HighlightProps> = ({ children, language, copyToClipboa
       {copyToClipboard && (
         <CopyToClipboard text={children}>
           <CopyButton>
-            <img alt="copy" src={copy} />
+            <CopyGlyph />
           </CopyButton>
         </CopyToClipboard>
       )}

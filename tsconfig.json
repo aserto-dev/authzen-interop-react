@@ -9,12 +9,10 @@
     "jsx": "react",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
-    "noEmit": true
+    "esModuleInterop": true
   },
   "include": ["src/**/*", "src/custom.d.ts"],
   "exclude": [
-    "src/stories",
     "node_modules",
     "build"
   ]

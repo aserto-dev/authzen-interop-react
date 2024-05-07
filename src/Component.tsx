@@ -1,5 +1,4 @@
 import React from 'react'
-import './Component.css'
 import styled, { ThemeProvider } from 'styled-components'
 import { theme } from './theme'
 import { GlobalStyle } from './globalStyles'
@@ -48,7 +47,7 @@ function Component({ vendor, logo, url, pdpurl }: ComponentProps) {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
 
-      <div className="App">
+      <div>
         <HeaderSection>
           <p>
             {vendor} implementation of &nbsp;

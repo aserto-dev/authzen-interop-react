@@ -1,3 +1,4 @@
+import React from 'react'
 import Highlight from '../Highlight'
 
 const modules: Record<string, string> = {

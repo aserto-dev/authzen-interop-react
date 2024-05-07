@@ -3,10 +3,9 @@ import peerDepsExternal from 'rollup-plugin-peer-deps-external'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import pkg from './package.json'
 import { babel } from '@rollup/plugin-babel'
-import postcss from 'rollup-plugin-postcss'
-import image from '@rollup/plugin-image'
 import commonjs from '@rollup/plugin-commonjs'
 import multiInput from 'rollup-plugin-multi-input'
+
 import typescript from 'rollup-plugin-typescript2'
 
 const makeExternalPredicate = (externalArr) => {
@@ -16,12 +15,15 @@ const makeExternalPredicate = (externalArr) => {
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
 const config = {
-  input: ['src/index.tsx', 'src/components/**/index.tsx', 'src/glyphs/**/*.tsx'],
+  input: ['src/index.tsx', 'src/components/**/index.tsx', 'src/components/**/index.tsx'],
   preserveModules: false,
   output: [
     {
       dir: 'dist',
-      format: 'es',
+      sourcemapPathTransform: (relativePath) => {
+        return path.relative('src', relativePath)
+      },
+      format: 'esm',
       sourcemap: false,
     },
   ],
@@ -30,22 +32,16 @@ const config = {
     typescript(),
     peerDepsExternal(),
     // Convert CommonJS modules to ES6
-    commonjs({
-      include: 'node_modules/**',
-    }),
+    commonjs({ include: 'node_modules/**' }),
     external(),
     babel({
       babelHelpers: 'runtime',
       extensions,
+      include: ['src/**/*'],
       exclude: 'node_modules/**',
       babelrc: true,
     }),
     nodeResolve({ extensions }),
-    postcss({
-      dest: './dist/styles.css',
-      plugins: [],
-    }),
-    image(),
     multiInput(),
   ],
   external: makeExternalPredicate(

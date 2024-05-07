@@ -2,7 +2,7 @@ import React from 'react'
 import { highlight, languages } from 'prismjs'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyButton, StyledCodeEditor } from './styles'
-import copy from '../../assets/copy.svg'
+import { CopyGlyph } from '../CopyGlyph'
 
 function createCurl(payload: string) {
   return `curl https://authzen-proxy.demo.aserto.com/access/v1/evaluation \\
@@ -31,7 +31,7 @@ const CodeEditor: React.FC<{
       {copyToClipboard && (
         <CopyToClipboard text={createCurl(value)}>
           <CopyButton>
-            <img alt="copy" src={copy} />
+            <CopyGlyph />
             &nbsp;&nbsp;Copy as curl
           </CopyButton>
         </CopyToClipboard>
