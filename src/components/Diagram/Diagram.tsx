@@ -6,7 +6,6 @@ import Box from '../Box'
 import openid from '../../assets/openid.png'
 import todobackend from '../../assets/todo-backend.png'
 import react from '../../assets/react.png'
-import defaultlogo from '../../assets/logo.png'
 
 const Container = styled.div`
   padding-left: 20px;
@@ -77,10 +76,10 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
       </AuthZenProxySection>
       <AsertoSection>
         <Box
-          label={`${vendor ?? "Aserto"} Authorizer`}
+          label={`${vendor} Authorizer`}
           color={theme.lochivarAccent3}
-          image={logo ?? defaultlogo}
-          url={url ?? "https://www.aserto.com"}
+          image={logo}
+          url={url}
           id="aserto"
         />
       </AsertoSection>

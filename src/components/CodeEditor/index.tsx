@@ -4,8 +4,8 @@ import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { CopyButton, StyledCodeEditor } from './styles'
 import { CopyGlyph } from '../CopyGlyph'
 
-function createCurl(payload: string) {
-  return `curl https://authzen-proxy.demo.aserto.com/access/v1/evaluation \\
+function createCurl(pdpurl: string, payload: string) {
+  return `curl ${pdpurl}/access/v1/evaluation \\
 -X 'POST' \\
 -H 'content-type: application/json' \\
 -d '${payload}'`
@@ -18,6 +18,7 @@ const CodeEditor: React.FC<{
   value: string
   onValueChange?: (value: string) => void
   copyToClipboard?: boolean
+  pdpurl?: string
 }> = ({
   hasError = false,
   readOnly = true,
@@ -25,11 +26,12 @@ const CodeEditor: React.FC<{
   language,
   onValueChange = () => {},
   copyToClipboard = false,
+  pdpurl = 'https://authzen-proxy.demo.aserto.com'
 }) => {
   return (
     <>
       {copyToClipboard && (
-        <CopyToClipboard text={createCurl(value)}>
+        <CopyToClipboard text={createCurl(pdpurl, value)}>
           <CopyButton>
             <CopyGlyph />
             &nbsp;&nbsp;Copy as curl

@@ -18,8 +18,6 @@ type PayloadProps = {
   resource: string
 }
 
-const authzenProxyUrl = 'https://authzen-proxy-sidecar.demo.aserto.com'
-
 const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
   const [response, setResponse] = useState('')
   const requestPayload = useMemo(() => {
@@ -50,7 +48,7 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
   
   const executeRequest = useCallback(async () => {
     try {
-      const url = `${pdpurl ?? authzenProxyUrl}/access/v1/evaluation`
+      const url = `${pdpurl}/access/v1/evaluation`
       const res = await fetch(url, {
         headers: {
           'content-type': 'application/json'

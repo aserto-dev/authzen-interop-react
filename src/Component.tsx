@@ -4,6 +4,7 @@ import { theme } from './theme'
 import { GlobalStyle } from './globalStyles'
 import { Requests } from './components/Requests'
 import Diagram from './components/Diagram/Diagram'
+import defaultlogo from '../../assets/logo.png'
 
 export const Container = styled.div`
   width: 100vw;
@@ -36,13 +37,18 @@ export const RequestsSection = styled.div`
 `
 
 type ComponentProps = {
-  vendor: string
-  logo: string
-  url: string
-  pdpurl: string
+  vendor?: string
+  logo?: string
+  url?: string
+  pdpurl?: string
 }
 
-function Component({ vendor, logo, url, pdpurl }: ComponentProps) {
+function Component({
+  vendor = 'Aserto',
+  logo = defaultlogo,
+  url = 'https://www.aserto.com',
+  pdpurl = 'https://authzen-proxy.demo.aserto.com',
+}: ComponentProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
