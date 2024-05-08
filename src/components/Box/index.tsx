@@ -11,14 +11,7 @@ const BoxDiv = styled.div<{ color: string; selected: boolean }>`
   border: 1px solid ${({ color }) => color};
   border-radius: 4px;
   color: ${theme.grey100};
-  .react-flow__handle {
-    border: 1px solid ${theme.grey30};
-    border: 1px solid ${({ color }) => color};
-    background: ${theme.grey30};
-    width: 1px;
-    height: 14px;
-    border-radius: 1px;
-  }
+  cursor: ${({ selected }) => (selected ? 'pointer' : 'default')}
 `
 
 const BoxLabel = styled.div`
