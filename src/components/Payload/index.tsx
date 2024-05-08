@@ -45,16 +45,16 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
     }
     return authZENrequest
   }, [user, operation, resource])
-  
+
   const executeRequest = useCallback(async () => {
     try {
       const url = `${pdpurl}/access/v1/evaluation`
       const res = await fetch(url, {
         headers: {
-          'content-type': 'application/json'
+          'content-type': 'application/json',
         },
         method: 'POST',
-        body: JSON.stringify(requestPayload)
+        body: JSON.stringify(requestPayload),
       })
       const responseObject = await res.json()
       setResponse(JSON.stringify(responseObject, null, 2))
@@ -77,7 +77,7 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
         </h4>
         <ExecuteButton onClick={executeRequest}>&nbsp;Execute&nbsp;</ExecuteButton>
       </PayloadTitle>
-      <CodeEditor value={JSON.stringify(requestPayload, null, 2)} copyToClipboard />
+      <CodeEditor value={JSON.stringify(requestPayload, null, 2)} copyToClipboard pdpurl={pdpurl} />
       <Response response={response} />
     </>
   )
