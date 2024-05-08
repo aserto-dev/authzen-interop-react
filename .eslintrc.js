@@ -38,32 +38,7 @@ module.exports = {
         fixToUnknown: true,
       },
     ],
-    'no-restricted-globals': [
-      'error',
-      { name: 'history', message: 'Use `useHistory` from `src/services/HistoryProvider` instead' },
-    ],
-    '@typescript-eslint/no-restricted-imports': [
-      'error',
-      {
-        paths: [
-          {
-            name: 'history',
-            message: 'Use `useHistory` from `src/services/HistoryProvider` instead',
-          },
-          {
-            name: '@auth0/auth0-react',
-            message: 'Use `useIdentity` from `src/services/IdentityProvider` instead',
-          },
-        ],
-        patterns: [
-          {
-            group: '**/types/graphql/*generated.ts',
-            message:
-              'Import from src/api/tenantDirectory.ts instead. This avoids direct dependencies on generated code.',
-          },
-        ],
-      },
-    ],
+
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',

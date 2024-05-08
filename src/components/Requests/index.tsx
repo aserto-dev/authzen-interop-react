@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { Selectors, userOptions, operationOptions } from '../Selectors'
+
+import { theme } from '../../theme'
 import Module from '../Module'
 import Payload from '../Payload'
-import { theme } from '../../theme'
+import { operationOptions, Selectors, userOptions } from '../Selectors'
 
 export const Container = styled.div`
   width: 100%;
@@ -23,7 +24,7 @@ export const SelectorsSection = styled.div`
 
 export const PayloadSection = styled.div`
   grid-area: payload;
-  padding: 10px;  
+  padding: 10px;
 `
 
 export const ModuleSection = styled.div`
@@ -33,7 +34,7 @@ export const ModuleSection = styled.div`
   border-left: 1px solid ${theme.grey20};
 `
 
-export const Requests = ({ pdpurl} : { pdpurl: string }) => {
+export const Requests = ({ pdpurl }: { pdpurl: string }) => {
   const [user, setUser] = useState(userOptions[0])
   const [operation, setOperation] = useState(operationOptions[0])
   const [resource, setResource] = useState(userOptions[0])
@@ -42,17 +43,22 @@ export const Requests = ({ pdpurl} : { pdpurl: string }) => {
     <Container>
       <SelectorsSection>
         <Selectors
-          user={user}
-          setUser={setUser}
           operation={operation}
-          setOperation={setOperation}
           resource={resource}
+          setOperation={setOperation}
           setResource={setResource}
+          setUser={setUser}
+          user={user}
         />
       </SelectorsSection>
 
       <PayloadSection>
-        <Payload pdpurl={pdpurl} user={user.label} operation={operation.label} resource={resource.label} />
+        <Payload
+          operation={operation.label}
+          pdpurl={pdpurl}
+          resource={resource.label}
+          user={user.label}
+        />
       </PayloadSection>
 
       <ModuleSection>

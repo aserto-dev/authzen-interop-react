@@ -7,7 +7,7 @@ const BoxDiv = styled.div<{ color: string; selected: boolean }>`
   width: 100%;
   height: 100%;
   padding: 8px;
-  background-color: ${({ selected }) => selected ? theme.grey20 : theme.grey10};
+  background-color: ${({ selected }) => (selected ? theme.grey20 : theme.grey10)};
   border: 1px solid ${({ color }) => color};
   border-radius: 4px;
   color: ${theme.grey100};
@@ -52,17 +52,17 @@ const Box: FC<BoxProps> = ({ url, color, label, image, id }: BoxProps) => {
   return (
     <>
       <BoxDiv
+        color={color || theme.grey30}
         id={id}
+        selected={selected}
         onClick={() => url && window.open(url)}
         onMouseEnter={() => url && setSelected(true)}
         onMouseLeave={() => url && setSelected(false)}
-        color={color || theme.grey30}
-        selected={selected}
       >
         <BoxLabel>{label}</BoxLabel>
         {image && (
           <Image>
-            <img src={image} height="80px" alt="logo" />
+            <img alt="logo" height="80px" src={image} />
           </Image>
         )}
       </BoxDiv>

@@ -1,8 +1,9 @@
-import React from 'react'
 import { highlight, languages } from 'prismjs'
+import React from 'react'
 import { CopyToClipboard } from 'react-copy-to-clipboard'
-import { CopyButton, StyledCodeEditor } from './styles'
+
 import { CopyGlyph } from '../CopyGlyph'
+import { CopyButton, StyledCodeEditor } from './styles'
 
 function createCurl(pdpurl: string, payload: string) {
   return `curl ${pdpurl}/access/v1/evaluation \\
@@ -26,7 +27,7 @@ const CodeEditor: React.FC<{
   language,
   onValueChange = () => {},
   copyToClipboard = false,
-  pdpurl = 'https://authzen-proxy.demo.aserto.com'
+  pdpurl = 'https://authzen-proxy.demo.aserto.com',
 }) => {
   return (
     <>
