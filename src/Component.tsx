@@ -1,10 +1,11 @@
 import React from 'react'
 import styled, { ThemeProvider } from 'styled-components'
-import { theme } from './theme'
-import { GlobalStyle } from './globalStyles'
-import { Requests } from './components/Requests'
-import Diagram from './components/Diagram/Diagram'
+
 import defaultlogo from './assets/logo.png'
+import Diagram from './components/Diagram/Diagram'
+import { Requests } from './components/Requests'
+import { GlobalStyle } from './globalStyles'
+import { theme } from './theme'
 
 export const Container = styled.div`
   width: 100vw;
@@ -57,14 +58,14 @@ function Component({
         <HeaderSection>
           <p>
             {vendor} implementation of &nbsp;
-            <a href="https://authzen-interop.net" target="_blank" rel="noopener noreferrer">
+            <a href="https://authzen-interop.net" rel="noopener noreferrer" target="_blank">
               AuthZEN Todo Interop Scenario
             </a>
           </p>
         </HeaderSection>
 
         <ArchSection>
-          <Diagram vendor={vendor} logo={logo} url={url} />
+          <Diagram logo={logo} url={url} vendor={vendor} />
         </ArchSection>
 
         <RequestsSection>

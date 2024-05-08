@@ -1,11 +1,12 @@
 import React from 'react'
-import styled from 'styled-components'
 import Xarrow from 'react-xarrows'
+import styled from 'styled-components'
+
+import openid from '../../assets/openid.png'
+import react from '../../assets/react.png'
+import todobackend from '../../assets/todo-backend.png'
 import { theme } from '../../theme'
 import Box from '../Box'
-import openid from '../../assets/openid.png'
-import todobackend from '../../assets/todo-backend.png'
-import react from '../../assets/react.png'
 
 const Container = styled.div`
   padding-left: 20px;
@@ -50,47 +51,42 @@ const Diagram = ({ vendor, logo, url }: DiagramProps) => {
     <Container>
       <TodoReactSection>
         <Box
-          label="Todo React App"
           color={theme.indogoAccent3}
-          image={react}
-          url="https://todo.authzen-interop.net"
           id="todo-react"
+          image={react}
+          label="Todo React App"
+          url="https://todo.authzen-interop.net"
         />
       </TodoReactSection>
 
       <TodoBackendSection>
         <Box
-          label="Todo Backend"
           color={theme.appleAccent3}
-          image={todobackend}
           id="todo-backend"
+          image={todobackend}
+          label="Todo Backend"
         />
       </TodoBackendSection>
       <AuthZenProxySection>
-        <Box
-          label="AuthZEN Proxy"
-          color={theme.mojoAccent3}
-          image={openid}
-          id="authzen-proxy"
-        />
+        <Box color={theme.mojoAccent3} id="authzen-proxy" image={openid} label="AuthZEN Proxy" />
       </AuthZenProxySection>
       <AsertoSection>
         <Box
-          label={`${vendor} Authorizer`}
           color={theme.lochivarAccent3}
-          image={logo}
-          url={url}
           id="aserto"
+          image={logo}
+          label={`${vendor} Authorizer`}
+          url={url}
         />
       </AsertoSection>
-      <Xarrow start="todo-react" end="todo-backend" strokeWidth={2} />
+      <Xarrow end="todo-backend" start="todo-react" strokeWidth={2} />
       <Xarrow
-        start="todo-backend"
         end="authzen-proxy"
         labels={{ middle: <div style={{ marginTop: '30px' }}>AuthZEN payload</div> }}
+        start="todo-backend"
         strokeWidth={2}
       />
-      <Xarrow start="authzen-proxy" end="aserto" strokeWidth={2} />
+      <Xarrow end="aserto" start="authzen-proxy" strokeWidth={2} />
     </Container>
   )
 }

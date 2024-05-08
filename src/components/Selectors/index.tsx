@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Properties from '../Properties'
 import { Row } from '../Row'
 import Select, { SelectOption } from '../Select'
-import Properties from '../Properties'
 
 const FieldContainer = styled.div<{
   $marginTop?: number

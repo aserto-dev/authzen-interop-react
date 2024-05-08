@@ -13,18 +13,27 @@ type HighlightProps = {
   fontSize?: string
 }
 
-const Highlight: React.FC<HighlightProps> = ({ children, language, copyToClipboard, height, fontSize = '14px' }) => {
+const Highlight: React.FC<HighlightProps> = ({
+  children,
+  language,
+  copyToClipboard,
+  height,
+  fontSize = '14px',
+}) => {
   const memoizedHighlighter = useMemo(
     () => (
       <SyntaxHighlighter
         language={language}
         lineProps={{ style: { whiteSpace: 'break-spaces' } }}
-        style={{...customAtomDark, 'pre[class*="language-"]': {
-          background: 'inherit',
-          fontFamily: '"Fira Code", monospace',
-          fontSize,
-          fontWeight: '500',
-        }}}
+        style={{
+          ...customAtomDark,
+          'pre[class*="language-"]': {
+            background: 'inherit',
+            fontFamily: '"Fira Code", monospace',
+            fontSize,
+            fontWeight: '500',
+          },
+        }}
         wrapLines={true}
       >
         {children}
