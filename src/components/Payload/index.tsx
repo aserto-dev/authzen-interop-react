@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
+
 import CodeEditor from '../CodeEditor'
 import Response from '../Response'
 import { ExecuteButton, PayloadTitle } from './styles'
@@ -22,7 +23,7 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
   const [response, setResponse] = useState('')
   const requestPayload = useMemo(() => {
     const action = operations[operation]
-    const authZENrequest: Record<string, Record<string, Object>> = {
+    const authZENrequest: Record<string, Record<string, unknown>> = {
       subject: {
         identity: user,
       },
@@ -61,7 +62,7 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
     } catch (e) {
       setResponse('error')
     }
-  }, [requestPayload])
+  }, [requestPayload, pdpurl])
 
   return (
     <>
@@ -69,15 +70,15 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
         <h4>
           <a
             href="https://authzen-interop.net/docs/scenarios/todo"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             AuthZEN Payload
           </a>
         </h4>
         <ExecuteButton onClick={executeRequest}>&nbsp;Execute&nbsp;</ExecuteButton>
       </PayloadTitle>
-      <CodeEditor value={JSON.stringify(requestPayload, null, 2)} copyToClipboard pdpurl={pdpurl} />
+      <CodeEditor copyToClipboard pdpurl={pdpurl} value={JSON.stringify(requestPayload, null, 2)} />
       <Response response={response} />
     </>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import CodeEditor from '../CodeEditor'
+
 import { theme } from '../../theme'
+import CodeEditor from '../CodeEditor'
 
 const Label = styled.div`
   margin-top: 3px;

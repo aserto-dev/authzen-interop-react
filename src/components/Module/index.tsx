@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Highlight from '../Highlight'
 
 const modules: Record<string, string> = {
@@ -60,9 +61,7 @@ allowed {
 }
 
 const Module = ({ module }: { module: string }) => {
-  return (
-    <Highlight language="rego">{modules[module] || ''}</Highlight>
-  )
+  return <Highlight language="rego">{modules[module] || ''}</Highlight>
 }
 
 export default Module

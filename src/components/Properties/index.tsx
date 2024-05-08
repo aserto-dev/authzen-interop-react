@@ -1,7 +1,8 @@
 import React from 'react'
+
 import Highlight from '../Highlight'
 
-const users: Record<string, Object> = {
+const users: Record<string, unknown> = {
   CiRmZDA2MTRkMy1jMzlhLTQ3ODEtYjdiZC04Yjk2ZjVhNTEwMGQSBWxvY2Fs: {
     id: 'rick@the-citadel.com',
     name: 'Rick Sanchez',
@@ -67,7 +68,7 @@ const users: Record<string, Object> = {
 const Properties = ({ user }: { user: string }) => {
   const json = JSON.stringify(users[user], null, 2)
   return (
-    <Highlight language="rego" fontSize="12px">
+    <Highlight fontSize="12px" language="rego">
       {json || ''}
     </Highlight>
   )
