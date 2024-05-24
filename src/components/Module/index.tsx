@@ -34,7 +34,7 @@ default allowed = false
 
 allowed {
   user.properties.roles[_] == "editor"
-  user.key == resource.ownerID
+  user.id == resource.ownerID
 }
 
 allowed {
@@ -50,7 +50,7 @@ default allowed = false
 
 allowed {
   user.properties.roles[_] == "editor"
-  user.key == resource.ownerID
+  user.id == resource.ownerID
 }
 
 allowed {
