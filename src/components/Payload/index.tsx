@@ -25,7 +25,8 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
     const action = operations[operation]
     const authZENrequest: Record<string, Record<string, unknown>> = {
       subject: {
-        identity: user,
+        type: 'user',
+        id: user,
       },
       action: {
         name: action,
@@ -35,13 +36,18 @@ const Payload = ({ pdpurl, user, operation, resource }: PayloadProps) => {
     }
     switch (action) {
       case 'can_read_user':
-        authZENrequest.resource.userID = resource
+        authZENrequest.resource.type = 'user'
+        authZENrequest.resource.id = resource
         break
       case 'can_update_todo':
-        authZENrequest.resource.ownerID = resource
+        authZENrequest.resource.type = 'todo'
+        authZENrequest.resource.id = 'todo-1'
+        authZENrequest.resource.properties = { ownerID: resource }
         break
       case 'can_delete_todo':
-        authZENrequest.resource.ownerID = resource
+        authZENrequest.resource.type = 'todo'
+        authZENrequest.resource.id = 'todo-1'
+        authZENrequest.resource.properties = { ownerID: resource }
         break
     }
     return authZENrequest
